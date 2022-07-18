@@ -88,10 +88,9 @@ const Input = styled(motion.input)`
 const logoVariants = {
     normal: {
         fillOpacity: 1,
-
     },
     active: {
-        fillOpacity:[0, 0.2, 0.4, 0.6, 0.8],
+        fillOpacity:[0, 0.2, 0.4, 0.6, 0.8, 1],
         transition: {
             //무한반복
             repeat: Infinity
