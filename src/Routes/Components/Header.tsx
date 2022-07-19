@@ -90,10 +90,11 @@ const logoVariants = {
         fillOpacity: 1,
     },
     active: {
-        fillOpacity:[0, 0.2, 0.4, 0.6, 0.8, 1],
+        fillOpacity:[1, 0.8, 0.5, 0.2, 0, 0.2, 0.5, 0.8],
         transition: {
             //무한반복
-            repeat: Infinity
+            repeat: Infinity,
+            duration: 1
         }
     },
 }
