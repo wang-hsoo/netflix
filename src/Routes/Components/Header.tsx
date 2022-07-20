@@ -110,7 +110,7 @@ const navVariants = {
 
 function Header() {
     const homeMatch = useRouteMatch("/");
-    const tvMatch = useRouteMatch("/tv");
+    const tvMatch = useRouteMatch("/tv"); //현재 위치를 확인
     const [searchOpen, setSearchOpen] = useState(false);
     const inputAnimation = useAnimation();
     const navAnimation = useAnimation();
