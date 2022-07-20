@@ -7,6 +7,7 @@ import { makeImagePath } from "../utils";
 
 const Wrapper = styled.div`
     background-color: black;
+    height: 500vh;
 `;
 
 const Loader = styled.div`
@@ -55,7 +56,27 @@ const Box = styled(motion.div)<{bgPhoto:string}>`
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
+
+    &:first-child{
+        transform-origin: center left;
+    }
+    &:last-child{
+        transform-origin: center right;
+    }
 `;
+
+const Info = styled(motion.div)`
+    padding: 10px;
+    background-color: ${(props) => props.theme.black.lighter};
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    h4{
+        text-align: center;
+        font-size: 18px;
+    }
+`
 
 const rowVariants = {
     hidden: {
@@ -67,6 +88,34 @@ const rowVariants = {
     exit: {
         x: -window.outerWidth - 5
         //화면 밖으로 나가는 항목과 다음으로 나오는 항목이 붙어 있기 떄문에 gap 만큼 거리를 넓혀준다
+    }
+}
+
+const BoxVariants = {
+    normal:{
+        scale:1,
+        
+    },
+    hover:{
+        
+        scale: 1.3,
+        y: -50,
+        transition: {
+            delay: 0.5,
+            type: "tween",
+            duration: 0.3
+        }
+    }
+}
+
+const infoVariants = {
+    hover: {
+        opacity: 1,
+        transition: {
+            delay: 0.5,
+            type: "tween",
+            duration: 0.3
+        }
     }
 }
 
@@ -113,7 +162,18 @@ function Home(){
                             {/*이미 사용한 영화를 제외하고 영화를 총 6개씩 구분하기 위한 코드 */}
                             {data?.results.slice(1).slice(offset* index, offset*index+ offset)
                             .map( (movie) => (
-                                <Box key={movie.id} bgPhoto={makeImagePath(movie?.backdrop_path, "w500")}></Box>
+                                <Box 
+                                    key={movie.id} 
+                                    bgPhoto={makeImagePath(movie?.backdrop_path, "w500")}
+                                    variants={BoxVariants}
+                                    whileHover="hover"
+                                    initial="normal"
+                                    transition={{type: "tween"}}
+                                >
+                                    <Info variants={infoVariants}>
+                                        <h4>{movie.title}</h4>
+                                    </Info>
+                                </Box>
                             ))}
                         </Row>
                     </AnimatePresence>
