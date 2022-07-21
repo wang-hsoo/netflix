@@ -9,7 +9,7 @@ import { makeImagePath } from "../utils";
 
 const Wrapper = styled.div`
     background-color: black;
-    
+    height: 200vh;
 `;
 
 const Loader = styled.div`
@@ -59,7 +59,6 @@ const Box = styled(motion.div)<{bgPhoto:string}>`
     background-position: center center;
     background-repeat: no-repeat;
     cursor: pointer;
-
     &:first-child{
         transform-origin: center left;
     }
