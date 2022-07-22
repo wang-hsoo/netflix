@@ -123,6 +123,12 @@ const BigOverView = styled.div`
     color: ${props => props.theme.white.lighter};
 `
 
+const NowMovie = styled.h3`
+    font-size: 20px;
+    margin-top: -10px;
+    margin-bottom: 10px;
+`
+
 const rowVariants = {
     hidden: {
         x: window.outerWidth + 5,
@@ -174,7 +180,7 @@ function Home(){
     const [index, setIndex] = useState(0)
     const [leaving, setLeaving] = useState(false);
     const {scrollY} = useViewportScroll();
-
+    console.log(bigMovieMath);
     const incraseIndex = () => {
         if(data){
             //연속 클릭 시 배열 간 간격차가 많이 나는 오류를 해결하기 위한 코드
@@ -211,6 +217,7 @@ function Home(){
                 <Slider>
                                     {/*애니메이션이 끝났을때 일어남 */}
                     <AnimatePresence onExitComplete={toggleLeaving} initial={false}>
+                        <NowMovie>Now Playing</NowMovie>
                         <Row 
                             key={index} 
                             variants={rowVariants} 

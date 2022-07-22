@@ -12,7 +12,7 @@ function App() {
         <Route path="/tv">
           <Tv />
         </Route>
-        <Route path="/search">
+        <Route path={["/search", "/search?keyword=:keyword/:movieID"]}>
           <Search />
         </Route>
         {/* 두개의 path에서 같은 컴포넌트를 render 하도록 함*/}
