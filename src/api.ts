@@ -6,6 +6,7 @@ interface IMovie {
     backdrop_path: string;
     poster_path: string;
     title: string;
+    name: string;
     overview: string;
     vote_average:number;
     vote_count:number;
@@ -24,6 +25,21 @@ export interface IGetMoviesResult{
 
 export async function getMovies() {
     return await fetch(`${BASE_PATH}/movie/now_playing?api_key=${API_KEY}`).then(
+      (response) => response.json()
+    );
+  }
+
+
+
+  export interface IGetTvResult{
+    page: number;
+    results: IMovie[];
+    total_pages: number;
+    total_results: number;
+  }
+
+  export async function getTv (){
+    return await fetch(`${BASE_PATH}/tv/popular?api_key=${API_KEY}&language=en-US&page=1`).then(
       (response) => response.json()
     );
   }

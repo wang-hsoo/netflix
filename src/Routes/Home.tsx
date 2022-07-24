@@ -11,7 +11,7 @@ import prev from "../img/prev.png";
 
 const Wrapper = styled.div`
     background-color: black;
-    height: 200vh;
+    
 `;
 
 const Loader = styled.div`
@@ -293,8 +293,7 @@ function Home(){
                             ))}
                         </Row>
                     </AnimatePresence>
-                </Slider>
-                
+                </Slider>        
                 <AnimatePresence>
                    {bigMovieMath ? ( 
                     <>
